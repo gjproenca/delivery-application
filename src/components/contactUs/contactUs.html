@@ -1,0 +1,68 @@
+<v-app>
+  <v-container fill-height fluid id="contentContactUs">
+    <v-row justify="center">
+      <v-col class="d-flex justify-center" cols="12">
+        <v-card width="400">
+          <v-card-title>
+            <h1 class="display-1">Send us an email</h1>
+          </v-card-title>
+          <v-card-text>
+            <v-form
+              @submit.prevent="sendEmail"
+              ref="registerForm"
+              v-model="formIsValid"
+            >
+              <v-text-field
+                type="text"
+                label="Name"
+                prepend-icon="mdi-account-badge-horizontal"
+                :rules="nameRules"
+                name="from_name"
+              />
+              <v-text-field
+                label="Email"
+                v-model="email"
+                prepend-icon="mdi-account-circle"
+                :rules="emailRules"
+                name="to_email"
+              />
+              <v-textarea
+                label="Message"
+                prepend-icon="mdi-message"
+                :rules="messageRules"
+                name="message_html"
+                clearable
+              ></v-textarea>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  type="submit"
+                  color="primary"
+                  :disabled="!formIsValid"
+                  >Submit</v-btn
+                >
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-form>
+            <template v-if="success">
+              <v-divider></v-divider>
+              <v-container fluid>
+                <p >
+                  <h2 class="text-center">Email sent successfully</h2>
+                </p>
+              </v-container>
+            </template>
+            <template v-if="error">
+              <v-divider></v-divider>
+              <v-container fluid>
+                <p >
+                  <h2 class="text-center">There was an error sending the email Please try again later</h2>
+                </p>
+              </v-container>
+            </template>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</v-app>

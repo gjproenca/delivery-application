@@ -1,0 +1,108 @@
+<div id="app">
+  <v-app>
+    <v-app-bar :color="appBarColor" app flat hide-on-scroll>
+      <v-row>
+        <v-col cols="4" class="d-flex justify-start">
+          <v-toolbar-items>
+            <v-toolbar-title
+              v-if="!isLoggedIn"
+              class="d-flex align-center"
+              style="color: white"
+              >DirectLineDelivers</v-toolbar-title
+            >
+            <v-toolbar-title
+              v-if="isLoggedIn"
+              class="d-flex align-center"
+              style="color: white"
+              >{{ data.name }}</v-toolbar-title
+            >
+          </v-toolbar-items>
+        </v-col>
+        <v-col cols="8" class="d-flex justify-end">
+          <v-toolbar-items>
+            <v-btn
+              v-if="!isLoggedIn"
+              color="white"
+              class="mr-3"
+              :to="{name: 'home'}"
+              text
+              exact
+            >
+              Home </v-btn
+            >
+            <v-btn
+              v-if="!isLoggedIn"
+              color="white"
+              class="mr-3"
+              :to="{name: 'contactUs'}"
+              text
+              exact
+            >
+              Contact Us </v-btn
+            >
+            <v-btn
+              color="white"
+              class="mr-3"
+              v-if="isLoggedIn"
+              :to="{name: 'dashboard'}"
+              text
+              exact
+            >
+              Dashboard </v-btn
+            ><v-btn
+              color="white"
+              class="mr-3"
+              v-if="!isLoggedIn"
+              :to="{name: 'login'}"
+              text
+              exact
+            >
+              Login
+            </v-btn>
+            <v-btn color="white" v-if="isLoggedIn" @click="logout" text exact>
+              Logout
+            </v-btn>
+            <v-btn
+              color="white"
+              v-if="!isLoggedIn"
+              :to="{name: 'register'}"
+              text
+              exact
+            >
+              Register
+            </v-btn>
+          </v-toolbar-items>
+        </v-col>
+      </v-row>
+    </v-app-bar>
+    <v-content v-if="contentWrapper">
+      <router-view></router-view>
+    </v-content>
+    <template v-else>
+      <router-view></router-view>
+    </template>
+    <v-btn
+      v-if="!contentWrapper"
+      v-scroll="onScroll"
+      v-show="fab"
+      fab
+      dark
+      fixed
+      bottom
+      right
+      color="primary"
+      @click="toTop"
+    >
+      <v-icon>mdi-chevron-up</v-icon>
+    </v-btn>
+    <template v-if="!contentWrapper">
+      <v-footer color="primary" padless>
+        <v-row justify="center" no-gutters>
+          <v-col class="primary py-4 text-center white--text" cols="12">
+            {{ new Date().getFullYear() }} — <strong>Goncalo Proenca</strong>
+          </v-col>
+        </v-row>
+      </v-footer>
+    </template>
+  </v-app>
+</div>

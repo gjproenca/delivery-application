@@ -1,0 +1,73 @@
+<v-app>
+  <v-container fill-height fluid id="contentHome1">
+    <div class="d-flex mt-12" id="logo-wrapper">
+      <v-img id="logo" src="../../images/logo.png"></v-img>
+    </div>
+    <v-row>
+      <v-col cols="12">
+        <v-row justify="center">
+          <v-col cols="12">
+            <h1 class="text-center">anything anytime anywhere</h1>
+            <h2 class="text-center">
+              a world of food at your fingertips
+            </h2>
+            <br />
+          </v-col>
+        </v-row>
+        <v-row justify="center">
+          <v-col class="d-flex justify-center" cols="12">
+            <v-btn
+              href="#contentHome2"
+              id="buttonLearnMore"
+              fab
+              color="primary"
+            >
+              <v-icon>mdi-chevron-down</v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
+  <v-container fill-height fluid id="contentHome2">
+    <v-row>
+      <v-col cols="12">
+        <v-row justify="center">
+          <v-col cols="12">
+            <h1 class="text-center">satisfy your cravings</h1>
+            <h2 class="text-center">
+              we deliver a universal taste experience
+            </h2>
+          </v-col>
+        </v-row>
+        <v-row justify="center">
+          <v-col class="d-flex justify-center" cols="12">
+            <v-btn
+              href="#contentHome3"
+              id="buttonLearnMore"
+              fab
+              color="primary"
+            >
+              <v-icon>mdi-chevron-down</v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
+  <v-container fluid id="contentHome3">
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <h1 id="subtitle" class="text-center">
+            spend more time doing the things that matter to you the most
+          </h1>
+          <br />
+          <router-link to="/register" style="text-decoration: none;">
+            <h1 id="title" class="text-center">we'll take care of the rest</h1>
+          </router-link>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-container>
+</v-app>

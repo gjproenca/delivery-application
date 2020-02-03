@@ -1,0 +1,12 @@
+@import "~leaflet/dist/leaflet.css";
+#map {
+  width: calc(100% - 256px);
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  z-index: 1;
+}
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css");
+@import url("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css");
+@import url("https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css");

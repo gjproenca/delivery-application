@@ -1,0 +1,25 @@
+<div id="nav-wrapper">
+  <template>
+    <v-list style="padding: 0px" dense>
+      <v-subheader>Deliveries</v-subheader>
+      <v-list-item-group v-model="item" color="primary">
+        <v-list-item
+          v-for="(delivery, index) in deliveries"
+          :key="index"
+          @click="selectedDelivery(delivery)"
+        >
+          <v-list-item-content>
+            <v-list-item-title v-text="delivery.item">
+              <slot name="default"
+                >There are no deliveries</slot
+              ></v-list-item-title
+            >
+            <v-list-item-subtitle
+              v-text="delivery.dueBy"
+            ></v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
+  </template>
+</div>
